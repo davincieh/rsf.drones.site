@@ -435,19 +435,20 @@
                 margin: 0;
             }
         }
-        /* Ajustes finos para celulares (telas menores que 768px) */
+        /* Ajustes finos e trava de segurança contra estouro de tela em celulares */
 @media (max-width: 767px) {
     :root {
-        --spacing-xl: 3rem; /* Reduz espaços vertigigatos exagerados */
+        --spacing-xl: 3rem;
         --spacing-lg: 2rem;
     }
 
-    body {
-        font-size: 1rem; /* Melhora a proporção base do texto */
+    body, html {
+        max-width: 100vw;
+        overflow-x: hidden !important;
     }
 
     .hero-content h1 {
-        font-size: 2.1rem !important; /* Evita que o título principal fique gigante e quebre mal */
+        font-size: 2.1rem !important;
         line-height: 1.15;
     }
 
@@ -456,7 +457,9 @@
     }
 
     .container {
-        padding: 0 1rem; /* Garante margens laterais seguras para o conteúdo não colar nas bordas */
+        padding: 0 1rem;
+        width: 100% !important;
+        box-sizing: border-box;
     }
 
     .hero-actions, .footer-socials {
@@ -465,8 +468,13 @@
     }
 
     .hero-actions .btn, .footer-socials .btn {
-        width: 100%; /* Deixa os botões fáceis de clicar com o dedo ocupando a largura útil */
+        width: 100%;
         justify-content: center;
+    }
+
+    /* Trava o efeito decorativo da foto para não vazar a largura do celular */
+    .about-image::after {
+        display: none; 
     }
 }
     </style>
