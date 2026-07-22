@@ -435,7 +435,7 @@
                 margin: 0;
             }
         }
-        /* Ajustes finos e trava de segurança contra estouro de tela em celulares */
+  /* Ajustes finos e correção de layout para celulares */
 @media (max-width: 767px) {
     :root {
         --spacing-xl: 3rem;
@@ -472,7 +472,24 @@
         justify-content: center;
     }
 
-    /* Trava o efeito decorativo da foto para não vazar a largura do celular */
+    /* Corrige o bloco "Quem Sou Eu?" no celular */
+    .about-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
     .about-image::after {
         display: none; 
     }
